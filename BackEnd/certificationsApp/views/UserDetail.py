@@ -37,4 +37,4 @@ class UserDetail(generics.GenericAPIView):
         if user is None:
             return Response({'status': 'Not Founded'}, status=status.HTTP_404_NOT_FOUND)
         user.delete()
-        return Response({'status': 'deleted'}, status=status.HTTP_204_NO_CONTENT)
+        return Response({'status': 'deleted'}, status=status.HTTP_200_OK)

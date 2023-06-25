@@ -17,6 +17,7 @@ class Certificates(generics.ListCreateAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
+        print(request.data)
         serializer = CertificateSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

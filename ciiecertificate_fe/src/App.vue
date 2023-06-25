@@ -9,24 +9,16 @@
 <script>
   export default {
     name: 'App',
-    data(){
-      return{
-        isAuthenticated: false,
+    computed: {
+      isAuthenticated: {
+        get: function(){
+          return this.$route.meta.requiresAuth;
+        },
+        set: function(){}
       }
     },
-    components: {
-
-    },
     methods: {
-      verifyAuth: function(){
-        if(!this.isAuthenticated) {
-          this.$router.push({name: 'LogIn'});
-        }else {
-          this.$router.push({name: 'AdminView'});
-        }
-      },
       logOut: function(){
-        this.isAuthenticated = false;
         localStorage.removeItem('accessData');
         localStorage.removeItem('user');
         this.$router.push({name: 'LogIn'});
@@ -39,8 +31,12 @@
         this.$router.push({name: 'CertificateValidate'});
       }
     },
-    created(){
-      this.verifyAuth();
+    created: function(){
+      if(this.isAuthenticated){
+        this.$router.push({name: 'AdminView'});
+      }else{
+        this.$router.push({name: 'LogIn'});
+      }
     }
   }
 

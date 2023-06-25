@@ -18,7 +18,7 @@ class CertificateDetail(generics.GenericAPIView):
             return None
 
     def get(self, request, pk):
-        certificate = self.get_certificate(pk)
+        certificate = Certificate.objects.all().filter(person_id=pk)
         if certificate is None:
             return Response({'status': 'not founded'},status=status.HTTP_404_NOT_FOUND)
         serializer = CertificateSerializer(certificate)

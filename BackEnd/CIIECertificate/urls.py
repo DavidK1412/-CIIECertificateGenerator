@@ -26,4 +26,5 @@ urlpatterns = [
     path('users/<str:pk>/', views.UserDetail.as_view()),
     path('certificates/', views.Certificates.as_view()),
     path('certificates/<str:pk>/', views.CertificateDetail.as_view()),
+    path('certificates/validate/<str:pk>/', views.CertificateNoAuthDetail.as_view()),
 ]

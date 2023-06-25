@@ -32,6 +32,14 @@ export default {
       certificateView: true,
     }
   },
+  computed: {
+    isAuthenticated: {
+      get: function(){
+        return this.$route.meta.requiresAuth;
+      },
+      set: function(){}
+    }
+  },
   methods: {
     loadCertificates: function () {
       this.userView = false;
