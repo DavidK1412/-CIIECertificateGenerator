@@ -142,7 +142,7 @@ WSGI_APPLICATION = 'CIIECertificate.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'neondb',
         'USER': 'DavidK1412',
         'PASSWORD': 'jU5WLrcCkXP8',
