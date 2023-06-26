@@ -55,7 +55,7 @@ export default {
       const token = JSON.parse(localStorage.getItem("accessData"));
       const decoded = jwtDecode(token.accessToken);
       await axios.get(
-          `http://localhost:8000/users/${decoded.user_id}/`,
+          `https://ciie-certificate-generator.vercel.app/users/${decoded.user_id}/`,
           {
             headers: {
               'Authorization': `Bearer ${token.accessToken}`

@@ -67,7 +67,7 @@ export default {
     },
     logInUser: function(){
       axios.post(
-          'http://127.0.0.1:8000/login/',
+          'https://ciie-certificate-generator.vercel.app/login/',
           this.user,
       )
       .then((response) => {

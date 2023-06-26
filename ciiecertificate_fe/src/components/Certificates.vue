@@ -119,7 +119,7 @@ export default {
     deleteCertificate: function (id) {
       const token = JSON.parse(localStorage.getItem("accessData"));
       axios.delete(
-          `http://127.0.0.1:8000/certificates/${id}/`,
+          `https://ciie-certificate-generator.vercel.app/certificates/${id}/`,
           {
             headers: {
               'Authorization': `Bearer ${token.accessToken}`
@@ -137,7 +137,7 @@ export default {
     getAllCertificates: function () {
       const token = JSON.parse(localStorage.getItem("accessData"));
       axios.get(
-          'http://127.0.0.1:8000/certificates/',
+          'https://ciie-certificate-generator.vercel.app/certificates/',
           {
             headers: {
               'Authorization': `Bearer ${token.accessToken}`
@@ -162,7 +162,7 @@ export default {
       const token = JSON.parse(localStorage.getItem("accessData"));
       this.certificate.user_id = JSON.parse(localStorage.getItem("user")).id;
       axios.post(
-          'http://127.0.0.1:8000/certificates/',
+          'https://ciie-certificate-generator.vercel.app/certificates/',
           this.certificate,
           {
             headers: {

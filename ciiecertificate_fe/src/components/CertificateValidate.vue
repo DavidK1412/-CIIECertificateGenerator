@@ -69,7 +69,7 @@ export default {
     },
     validateCertificate: function(){
       const modal = new Modal(document.getElementById('errorModal'));
-      axios.get(`http://localhost:8000/certificates/validate/${this.certificate.id}/`)
+      axios.get(`https://ciie-certificate-generator.vercel.app/certificates/validate/${this.certificate.id}/`)
       .then(response => {
         this.certificate.name = response.data.name;
         this.certificate.createdBy = response.data.created_by.name;

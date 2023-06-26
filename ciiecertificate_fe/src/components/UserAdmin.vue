@@ -105,7 +105,7 @@
       createUser: function() {
         const token = JSON.parse(localStorage.getItem("accessData"));
         axios.post(
-            'http://localhost:8000/users/'
+            'https://ciie-certificate-generator.vercel.app/users/'
             , this.user
             ,{
               headers: {
@@ -134,7 +134,7 @@
           return;
         }
         axios.delete(
-            `http://localhost:8000/users/${id}/`,
+            `https://ciie-certificate-generator.vercel.app/users/${id}/`,
             {
               headers: {
                 'Authorization': `Bearer ${token.accessToken}`

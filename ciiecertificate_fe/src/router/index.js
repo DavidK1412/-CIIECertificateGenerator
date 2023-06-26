@@ -44,7 +44,7 @@ async function checkAuth() {
 
   try{
     const token = JSON.parse(localStorage.getItem("accessData")).accessToken;
-    const result = await axios.post("http://127.0.0.1:8000/verify/", {token: token});
+    const result = await axios.post("https://ciie-certificate-generator.vercel.app/verify/", {token: token});
     console.log(result);
     if (result.status === 200) {
       return true;
