@@ -7,7 +7,7 @@ class CertificateSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     class Meta:
         model = Certificate
-        fields = ['user', 'person_id', 'city', 'name', 'description', 'user_id']
+        fields = ['user', 'id_type', 'person_id', 'city', 'name', 'description', 'user_id']
 
     def create(self, validated_data):
         user = User.objects.get(id=self.initial_data['user_id'])
@@ -31,6 +31,7 @@ class CertificateSerializer(serializers.ModelSerializer):
                 'email': created_by.email,
                 'name': created_by.name,
             },
+            'id_type': certificate.id_type,
             'person_id': certificate.person_id,
             'city': certificate.city,
             'name': certificate.name,

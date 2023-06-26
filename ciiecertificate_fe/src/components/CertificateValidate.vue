@@ -6,8 +6,9 @@
           <div class="modal-content">
             <div class="modal-body">
               <p v-if="certificate.founded">
-                El certificado identificado con el ID <b>{{certificate.id}}</b> otorgado a <b>{{certificate.name}}</b> por <b>{{certificate.description}}</b> expedido por el CIIE en la fecha <b>{{certificate.date}}</b> en la ciudad de <b>{{certificate.city}}</b>
+                El certificado identificado con el ID <b>{{certificate.id}}</b> otorgado a <b>{{certificate.name}} identificado {{certificate.id_type}} {{certificate.person_id}}</b> por <b>{{certificate.description}}</b> expedido por el CIIE en la fecha <b>{{certificate.date}}</b> en la ciudad de <b>{{certificate.city}}</b>
               </p>
+              <a id="download" v-if="certificate.founded" @click="downloadCertificate">Quiero descargarlo</a>
               <p v-else-if="!certificate.founded">
                 El certificado identificado con el ID {{certificate.id}} no existe
               </p>
@@ -40,6 +41,8 @@
 <script >
 import axios from 'axios';
 import {Modal} from "bootstrap";
+import { generateCertificate } from "../scripts/certificateGenerator";
+
 export default {
   name: 'CertificateValidate',
   components: {
@@ -56,10 +59,14 @@ export default {
         city: '',
         description: '',
         person_id: '',
+        id_type: ''
       }
     }
   },
   methods: {
+    downloadCertificate: function(){
+      generateCertificate(this.certificate);
+    },
     validateCertificate: function(){
       const modal = new Modal(document.getElementById('errorModal'));
       axios.get(`http://localhost:8000/certificates/validate/${this.certificate.id}/`)
@@ -88,6 +95,12 @@ export default {
 </script>
 
 <style scoped>
+
+#download{
+  color: #005CA6;
+  cursor: pointer;
+}
+
 .card-principal{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   position: absolute;

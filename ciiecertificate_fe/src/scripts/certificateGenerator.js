@@ -42,6 +42,7 @@ export function generateCertificate( certificateData ) {
     doc.text( "A quien corresponda, ", 30, 70 );
     doc.text( "Por medio de la presente hacemos constar que", 30, 80 ).setFont(undefined, 'bold');
     doc.text( `${certificateData.name.toUpperCase()}`, 70, 95).setFont(undefined, 'normal');
+    doc.text( `Identificado con ${certificateData.id_type} ${certificateData.person_id}` , 75, 100 );
     doc.text( `${certificateData.description}`, 30, 110, { maxWidth: 170, align: "justify" } );
     doc.text( "Extendemos la presente para los fines académicos e investigativos pertinentes. Sin más por el momento estamos a sus órdenes para cualquier duda o aclaración a la presente.", 30, 140, { maxWidth: 170, align: "justify" } );
     doc.addImage( images.signLetter, 'PNG', 80, 180 );

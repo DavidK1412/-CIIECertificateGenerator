@@ -14,6 +14,7 @@
             </div>
             <div class="input-group input-group p-4">
               <span class="input-group-text" id="inputGroup-sizing-lg"><i class="bi bi-person-vcard"></i></span>
+              <input v-model="certificate.id_type" type="text" class="form-control" placeholder="Ej. C.C" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
               <input v-model="certificate.person_id" type="text" class="form-control" placeholder="ID de la persona" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
             </div>
             <div class="input-group input-group p-4">
@@ -103,6 +104,7 @@ export default {
         city: '',
         name: '',
         description: '',
+        id_type: '',
       }
     }
   },
@@ -142,6 +144,7 @@ export default {
             }
           }
       ).then((response) => {
+        console.log(response.data)
         this.certificates = response.data;
       }).catch((error) => {
         console.log(error);

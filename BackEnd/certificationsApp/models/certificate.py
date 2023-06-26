@@ -5,6 +5,7 @@ import uuid
 class Certificate(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_type = models.CharField('id_type', max_length=10)
     person_id = models.CharField('person_id', max_length=200)
     city = models.CharField('city', max_length=200)
     name = models.CharField('name', max_length=200)
