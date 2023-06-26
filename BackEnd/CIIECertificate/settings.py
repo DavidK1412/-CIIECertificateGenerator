@@ -60,6 +60,9 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
+    '.vercel.app',
+    'localhost',
+    '.now.sh',
     "http://localhost:3000",
     "http://localhost:8000",
     "http://localhost:8080",
@@ -139,7 +142,7 @@ WSGI_APPLICATION = 'CIIECertificate.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'neondb',
         'USER': 'DavidK1412',
         'PASSWORD': 'jU5WLrcCkXP8',
