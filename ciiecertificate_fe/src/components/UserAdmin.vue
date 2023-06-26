@@ -152,7 +152,7 @@
       getUsers: function(){
         const token = JSON.parse(localStorage.getItem("accessData"));
         axios.get(
-            'http://127.0.0.1:8000/users/',
+            'https://ciie-certificate-generator.vercel.app/users/',
             {
               headers: {
                 'Authorization': `Bearer ${token.accessToken}`
