@@ -113,13 +113,16 @@
               }
             }
         ).then(response => {
-            console.log(response);
-            this.user = {
-              email: '',
-              name: '',
-              id: '',
-              can_create_users: false,
-            }
+          if (response.status === 200) {
+            alert(`Usuario ${this.user.email} creado`);
+            this.getUsers();
+          }
+          this.user = {
+            email: '',
+            name: '',
+            id: '',
+            can_create_users: false,
+          }
           }).catch(error => {
             console.log(error);
           });
