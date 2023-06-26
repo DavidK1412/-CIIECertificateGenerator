@@ -60,6 +60,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
+    'https://ciiecertificados.vercel.app/',
     '.vercel.app',
     'localhost',
     '.now.sh',
