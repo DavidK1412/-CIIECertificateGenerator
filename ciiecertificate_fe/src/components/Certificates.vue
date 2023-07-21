@@ -161,6 +161,10 @@ export default {
     createCertificate: function () {
       const token = JSON.parse(localStorage.getItem("accessData"));
       this.certificate.user_id = JSON.parse(localStorage.getItem("user")).id;
+      if(this.certificate.id_type === "" && this.certificate.person_id === ""){
+        this.certificate.id_type = "none";
+        this.certificate.person_id = "none";
+      }
       axios.post(
           'https://ciie-certificate-generator.vercel.app/certificates/',
           this.certificate,
