@@ -53,5 +53,5 @@ export function generateCertificate( certificateData ) {
     doc.text( "Politécnico Grancolombiano", 110, 215, {  align: "center" } );
     doc.text( "mmantillac@poligran.edu.co", 110, 220, {  align: "center" } );
     doc.addImage( images.footer, 'PNG', -10, 243 );
-    doc.save( "certificado.pdf" );
+    doc.save( "certificado-" + certificateData.name.toUpperCase() + ".pdf" );
 }
